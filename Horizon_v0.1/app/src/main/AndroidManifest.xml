@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StarterPage">
+        <activity android:name=".activities.WelcomeScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,10 +21,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".TenantListActivity" />
-        <activity android:name=".CustomerListActivity"></activity>
+        <activity android:name=".activities.TenantListActivity" />
+        <activity android:name=".activities.CustomerListActivity"></activity>
     </application>
 
 </manifest>

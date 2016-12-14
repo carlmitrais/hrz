@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screenSlidePage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3C4E67"
+    android:fillViewport="false">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:text="Track your jobs, contacts, and tasks for you"
+            android:id="@+id/detailTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="65dp"
+            android:layout_marginBottom="100dp"
+            android:textColor="#ffffff"
+            android:textSize="16dp"
+            android:textAlignment="textStart" />
+        <TextView
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="HORIZON"
+            android:id="@+id/textView"
+            android:textColor="#ffffff"
+            android:textSize="42dp"
+            android:layout_above="@+id/detailTextView"
+            android:layout_alignRight="@+id/detailTextView"
+            android:layout_alignEnd="@+id/detailTextView"
+            android:textStyle="bold" />
+
+        <!--<LinearLayout-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true">-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/imageView1"-->
+                <!--android:src="@mipmap/ic_fiber_manual_record_white_18dp"-->
+                <!--android:backgroundTint="#000000"-->
+                <!--android:backgroundTintMode="multiply"-->
+                <!--android:alpha="1" />-->
+            <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/imageView2"-->
+                <!--android:src="@mipmap/ic_fiber_manual_record_white_18dp" />-->
+            <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/imageView3"-->
+                <!--android:src="@mipmap/ic_fiber_manual_record_white_18dp" />-->
+        <!--</LinearLayout>-->
+    </RelativeLayout>
+</RelativeLayout>

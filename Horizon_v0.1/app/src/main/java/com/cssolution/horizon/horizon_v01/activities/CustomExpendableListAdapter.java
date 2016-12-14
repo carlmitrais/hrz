@@ -1,4 +1,4 @@
-package com.cssolution.horizon.horizon_v01;
+package com.cssolution.horizon.horizon_v01.activities;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+
+import com.cssolution.horizon.horizon_v01.R;
 
 /**
  * Created by Mohammad_T on 12/13/2016.

@@ -1,4 +1,4 @@
-package com.cssolution.horizon.horizon_v01;
+package com.cssolution.horizon.horizon_v01.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -29,6 +29,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.cssolution.horizon.horizon_v01.R;
 
 import java.util.ArrayList;
 import java.util.List;

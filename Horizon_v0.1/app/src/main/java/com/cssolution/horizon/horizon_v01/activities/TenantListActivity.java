@@ -1,4 +1,4 @@
-package com.cssolution.horizon.horizon_v01;
+package com.cssolution.horizon.horizon_v01.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.cssolution.horizon.horizon_v01.R;
 
 public class TenantListActivity extends AppCompatActivity {
 
