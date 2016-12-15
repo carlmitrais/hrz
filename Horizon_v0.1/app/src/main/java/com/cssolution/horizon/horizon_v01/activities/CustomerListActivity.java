@@ -1,11 +1,15 @@
 package com.cssolution.horizon.horizon_v01.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.cssolution.horizon.horizon_v01.R;
+import com.cssolution.horizon.horizon_v01.adapters.CustomExpendableListAdapter;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -28,9 +32,32 @@ public class CustomerListActivity extends AppCompatActivity {
 
         expandableListView = (ExpandableListView)findViewById(R.id.expandableListView);
         expandableListView.setAdapter(expandableListAdapter);
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView expandableList, View view, int groupPosition, int clientPosition, long id) {
+                String statusGroup = expandableListGroup.get(groupPosition).toString();
+                String client = expandableListItem.get(expandableListGroup.get(groupPosition)).get(clientPosition);
+                openWorkflowDetail(statusGroup, client);
 
+                Toast.makeText(
+                        getApplicationContext(), expandableListGroup.get(groupPosition) + " -- " +
+                                expandableListItem.get(expandableListGroup.get(groupPosition)).get(clientPosition), Toast.LENGTH_SHORT
+                ).show();
+
+                return false;
+            }
+        });
 
     }
+
+    private void openWorkflowDetail(String status, String client){
+        Intent intent = new Intent(this, WorkflowDetailActivity.class);
+        intent.putExtra("status", status);
+        intent.putExtra("client", client);
+        startActivity(intent);
+    }
+
+
 
     private void initializeDummyData(){
         // dummy data for group title

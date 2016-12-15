@@ -1,4 +1,4 @@
-package com.cssolution.horizon.horizon_v01.activities;
+package com.cssolution.horizon.horizon_v01.adapters;
 
 import java.util.HashMap;
 import java.util.List;
