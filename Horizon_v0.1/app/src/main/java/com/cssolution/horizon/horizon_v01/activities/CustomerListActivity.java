@@ -34,25 +34,18 @@ public class CustomerListActivity extends AppCompatActivity {
         expandableListView.setAdapter(expandableListAdapter);
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            public boolean onChildClick(ExpandableListView expandableList, View view, int groupPosition, int clientPosition, long id) {
-                String statusGroup = expandableListGroup.get(groupPosition).toString();
-                String client = expandableListItem.get(expandableListGroup.get(groupPosition)).get(clientPosition);
-                openWorkflowDetail(statusGroup, client);
-
-                Toast.makeText(
-                        getApplicationContext(), expandableListGroup.get(groupPosition) + " -- " +
-                                expandableListItem.get(expandableListGroup.get(groupPosition)).get(clientPosition), Toast.LENGTH_SHORT
-                ).show();
-
+            public boolean onChildClick(ExpandableListView expandableList, View view, int workflowId, int clientPosition, long id) {
+                String client = expandableListItem.get(expandableListGroup.get(workflowId)).get(clientPosition);
+                openWorkflowDetail(workflowId, client);
                 return false;
             }
         });
 
     }
 
-    private void openWorkflowDetail(String status, String client){
+    private void openWorkflowDetail(int workflowId, String client){
         Intent intent = new Intent(this, WorkflowDetailActivity.class);
-        intent.putExtra("status", status);
+        intent.putExtra("workflow_id", workflowId);
         intent.putExtra("client", client);
         startActivity(intent);
     }
@@ -64,7 +57,7 @@ public class CustomerListActivity extends AppCompatActivity {
         expandableListGroup = new ArrayList<String>();
         expandableListGroup.add("Lead");
         expandableListGroup.add("Prospect");
-        expandableListGroup.add("Accepted");
+        expandableListGroup.add("Production");
         expandableListGroup.add("Completed");
         expandableListGroup.add("Invoiced");
 
@@ -79,10 +72,10 @@ public class CustomerListActivity extends AppCompatActivity {
         prospectItems.add("Sammy West");
         prospectItems.add("Prince Owe");
 
-        List<String> acceptedItems = new ArrayList<String>();
-        acceptedItems.add("Black Smith");
-        acceptedItems.add("Blue Lagoon");
-        acceptedItems.add("Kennedy Ken");
+        List<String> productionItems = new ArrayList<String>();
+        productionItems.add("Black Smith");
+        productionItems.add("Blue Lagoon");
+        productionItems.add("Kennedy Ken");
 
         List<String> completedItems = new ArrayList<String>();
         completedItems.add("Sheila Mill");
@@ -97,7 +90,7 @@ public class CustomerListActivity extends AppCompatActivity {
         expandableListItem = new HashMap<String, List<String>>();
         expandableListItem.put(expandableListGroup.get(0), leadItems);
         expandableListItem.put(expandableListGroup.get(1), prospectItems);
-        expandableListItem.put(expandableListGroup.get(2), acceptedItems);
+        expandableListItem.put(expandableListGroup.get(2), productionItems);
         expandableListItem.put(expandableListGroup.get(3), completedItems);
         expandableListItem.put(expandableListGroup.get(4), invoicedItems);
     }
