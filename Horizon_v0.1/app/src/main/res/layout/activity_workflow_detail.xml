@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.cssolution.horizon.horizon_v01.activities.WorkflowDetailActivity">
 
     <LinearLayout
@@ -17,16 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tradeTypeTextView"
-                android:layout_gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textSize="13sp"
-                android:textColor="#000000" />
-
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_marginTop="4dp"
@@ -38,7 +29,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageView"
-                    android:src="@android:drawable/ic_menu_myplaces" />
+                    android:src="@mipmap/location" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -53,6 +44,17 @@
                     android:textStyle="normal" />
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/tradeTypeTextView"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:textColor="#000000"
+                android:gravity="end" />
 
         </LinearLayout>
 
@@ -75,9 +77,20 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/dynamicLeadLayout"
-            android:orientation="vertical"
+        <android.support.design.widget.TabLayout
+            android:id="@+id/workflowTab"
+            app:tabMode="fixed"
+            app:tabGravity="fill"
+            app:tabTextColor="#092048"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabIndicatorColor="#092048"
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/workflowPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

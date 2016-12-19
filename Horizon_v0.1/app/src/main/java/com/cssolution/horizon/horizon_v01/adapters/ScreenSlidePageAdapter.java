@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.cssolution.horizon.horizon_v01.fragments.ScreenSlidePageFragment;
+import com.cssolution.horizon.horizon_v01.fragments.WelcomeScreenSlideFragment;
 
 /**
  * Created by Mohammad_T on 12/14/2016.
@@ -24,7 +24,7 @@ public class ScreenSlidePageAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return ScreenSlidePageFragment.create(position);
+        return WelcomeScreenSlideFragment.create(position);
     }
 
     @Override
