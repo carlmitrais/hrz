@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cssolution.horizon.horizon_v01.activities.PhotoDetailActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#cfcfcf"
+        android:layout_gravity="right"
+        android:gravity="end">
+        <ImageView
+            android:id="@+id/undo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@mipmap/ic_undo_white_18dp"
+            android:layout_gravity="start"
+            android:tint="#000000"
+            android:padding="2dp" />
+        <ImageView
+            android:id="@+id/rotate"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@mipmap/ic_rotate_left_white_18dp"
+            android:layout_gravity="end"
+            android:tint="#000000"
+            android:padding="2dp" />
+        <ImageView
+            android:id="@+id/addText"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@mipmap/ic_title_white_18dp"
+            android:layout_gravity="end"
+            android:tint="#000000"
+            android:padding="2dp" />
+        <ImageView
+            android:id="@+id/drawLine"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@mipmap/ic_create_white_18dp"
+            android:layout_gravity="end|right"
+            android:tint="#000000"
+            android:padding="2dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:id="@+id/photoDetailImageView"
+        android:src="@drawable/sample" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="New Text"
+        android:id="@+id/textView6"
+        android:layout_below="@id/photoDetailImageView"
+        android:layout_alignParentEnd="true" />
+
+
+</LinearLayout>

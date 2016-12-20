@@ -67,8 +67,6 @@ public class WorkflowDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_workflow_detail);
         ((TextView) findViewById(R.id.tradeTypeTextView)).setText("Roofing, Gutters");
         ((TextView) findViewById(R.id.clientAddressTextView)).setText("411 Hayes Avenue Hayes\n Nebraska 69032");
-        ((TextView) findViewById(R.id.workflowStatus)).setText(workflowStatus[workflowId]);
-
 
         pager = (ViewPager) findViewById(R.id.workflowPager);
         setupTabPager(pager, workflowId);
