@@ -4,61 +4,64 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="6dp"
     tools:context="com.cssolution.horizon.horizon_v01.activities.PhotoDetailActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#cfcfcf"
-        android:layout_gravity="right"
-        android:gravity="end">
+        android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/undo"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@mipmap/ic_undo_white_18dp"
-            android:layout_gravity="start"
-            android:tint="#000000"
-            android:padding="2dp" />
-        <ImageView
-            android:id="@+id/rotate"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@mipmap/ic_rotate_left_white_18dp"
-            android:layout_gravity="end"
-            android:tint="#000000"
-            android:padding="2dp" />
-        <ImageView
-            android:id="@+id/addText"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@mipmap/ic_title_white_18dp"
-            android:layout_gravity="end"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="12dp"
+            android:src="@mipmap/undo"
+            android:layout_alignParentLeft="true"
             android:tint="#000000"
             android:padding="2dp" />
         <ImageView
             android:id="@+id/drawLine"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@mipmap/ic_create_white_18dp"
-            android:layout_gravity="end|right"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:src="@mipmap/line"
             android:tint="#000000"
             android:padding="2dp" />
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/addText"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_toLeftOf="@id/drawLine"
+            android:layout_marginRight="6dp"
+            android:src="@mipmap/text"
+            android:tint="#000000"
+            android:padding="2dp" />
+        <ImageView
+            android:id="@+id/rotate"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_toLeftOf="@id/addText"
+            android:layout_marginRight="6dp"
+            android:src="@mipmap/rotate"
+            android:tint="#000000"
+            android:padding="2dp" />
+    </RelativeLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <com.cssolution.horizon.horizon_v01.helpers.DrawImageView
+        android:layout_width="match_parent"
         android:layout_height="250dp"
         android:id="@+id/photoDetailImageView"
-        android:src="@drawable/sample" />
+        android:src="@drawable/sample"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
-        android:text="New Text"
+        android:text="Roof Leaks and moisture - leaks are not the only problem that can result from improperly installed flashing"
         android:id="@+id/textView6"
+        android:textColor="#000000"
         android:layout_below="@id/photoDetailImageView"
         android:layout_alignParentEnd="true" />
 

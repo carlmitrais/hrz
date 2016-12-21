@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -61,6 +62,7 @@ public class WorkflowDetailActivity extends AppCompatActivity {
                 ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(customActionBar, param);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // set the trade type, location, and workflow type
         // may be changed when the actual design available
@@ -113,5 +115,14 @@ public class WorkflowDetailActivity extends AppCompatActivity {
         pagerAdapter.addFragment(new InfoTabFragment(), "Info");
 
         pager.setAdapter(pagerAdapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

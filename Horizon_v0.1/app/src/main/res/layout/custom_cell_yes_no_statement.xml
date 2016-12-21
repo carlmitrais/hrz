@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/customCellYesNoStatement"
     android:orientation="vertical"
     android:divider="?android:dividerHorizontal"
     android:showDividers="end"

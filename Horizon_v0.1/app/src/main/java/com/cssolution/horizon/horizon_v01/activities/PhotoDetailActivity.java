@@ -7,13 +7,19 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.cssolution.horizon.horizon_v01.R;
+import com.cssolution.horizon.horizon_v01.helpers.DrawImageView;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -24,56 +30,63 @@ public class PhotoDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        View customActionBar = getLayoutInflater().inflate(R.layout.custom_action_bar, null);
+        ((TextView) customActionBar.findViewById(R.id.customActionBarTitle)).setText("");
+        android.support.v7.app.ActionBar.LayoutParams param = new android.support.v7.app.ActionBar.LayoutParams(
+                ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(customActionBar, param);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         setContentView(R.layout.activity_photo_detail);
 
-        try{
-            ViewConfiguration config = ViewConfiguration.get(this);
-            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
-            if (menuKeyField != null){
-                menuKeyField.setAccessible(true);
-                menuKeyField.setBoolean(config, false);
+        final ImageView iconDrawLine = (ImageView) findViewById(R.id.drawLine);
+        iconDrawLine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addBorderSelectedIcon(view);
             }
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+        });
+
+        final ImageView iconWriteText = (ImageView) findViewById(R.id.addText);
+        iconWriteText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addBorderSelectedIcon(view);
+            }
+        });
+
+        ImageView iconRotate = (ImageView) findViewById(R.id.rotate);
+        ImageView iconUndo = (ImageView) findViewById(R.id.undo);
+
+        final DrawImageView picture = ((DrawImageView) findViewById(R.id.photoDetailImageView));
+        picture.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                String type;
+                if (iconDrawLine.isSelected()){
+                    type = "Draw line";
+                } else if (iconWriteText.isSelected()){
+                    type = "Write text";
+                } else {
+                    type = null;
+                }
+
+                ((DrawImageView) view).setType(type);
+                view.invalidate();
+                return false;
+            }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.photo_detail_menu, menu);
-
-//        menu.getItem(0).getIcon().setTint(ContextCompat.getColor(this, android.R.color.darker_gray));
-
-//        for (int i=0; i< menu.size(); i++) {
-//            final MenuItem item = menu.getItem(i);
-//
-//            DrawableCompat.setTint(menu.getItem(0).getIcon(), ContextCompat.getColor(this, android.R.color.black));
-//        }
-
-        // to show icon in overflow context menu
-        if (menu.getClass().getSimpleName().equals("MenuBuilder")){
-            try {
-                Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
-                m.setAccessible(true);
-                m.invoke(menu, true);
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-
         return super.onCreateOptionsMenu(menu);
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -83,5 +96,15 @@ public class PhotoDetailActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    
+    private void addBorderSelectedIcon(View view){
+        if (!view.isSelected()) {
+            view.setSelected(true);
+            view.setBackground(ContextCompat.getDrawable(view.getContext(), R.drawable.selected_icon_menu));
+        } else {
+            view.setSelected(false);
+            view.setBackground(ContextCompat.getDrawable(view.getContext(), R.drawable.unselected_icon_menu));
+        }
     }
 }
