@@ -51,7 +51,10 @@
 
     <com.cssolution.horizon.horizon_v01.helpers.DrawImageView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
         android:id="@+id/photoDetailImageView"
         android:src="@drawable/sample"/>
 

@@ -3,6 +3,7 @@ package com.cssolution.horizon.horizon_v01.activities;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -12,6 +13,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cssolution.horizon.horizon_v01.R;
@@ -75,6 +77,14 @@ public class WorkflowDetailActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.workflowTab);
         tabLayout.setupWithViewPager(pager);
+
+        ((ImageView) findViewById(R.id.leadLocationImageView)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent locationIntent = new Intent(view.getContext(), LeadLocationActivity.class);
+                startActivity(locationIntent);
+            }
+        });
     }
 
     private void setupTabPager(ViewPager pager, int workflowId){
